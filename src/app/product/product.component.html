@@ -1,0 +1,17 @@
+<mat-card [ngClass]="{lowProduct: product.stock < 2}">
+    <mat-card-title-group>
+        <mat-card-title>
+        {{ product.title }}
+        </mat-card-title>
+        <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
+        <img mat-card-sm-image
+            [src]="product.photo"
+            alt="">
+    </mat-card-title-group>
+    <mat-card-content>
+        <p>{{ product.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button color="primary" (click)="addTobasket.emit(product)">Acheter</button>
+    </mat-card-actions>
+</mat-card>
