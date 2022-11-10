@@ -13,13 +13,18 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+
 import { ProductComponent } from './product/product.component';
+import { ProductPageComponent } from './product-page/product-page.component';
+import { BasketPageComponent } from './basket-page/basket-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    ProductComponent
+    ProductComponent,
+    ProductPageComponent,
+    BasketPageComponent
   ],
   imports: [
     BrowserModule,
