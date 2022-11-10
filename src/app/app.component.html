@@ -4,12 +4,12 @@
       <h2>Mon panier</h2>
     </mat-card-title>
     <mat-card-content>
-      <p *ngIf="total === 0; else basketTotal">Vous n'avez pas encore d'articles dans votre panier.</p>
+      <p *ngIf="!basketService.hasProducts(); else basketTotal">Vous n'avez pas encore d'articles dans votre panier.</p>
       <ng-template #basketTotal>Votre panier est de {{ total | currency }}</ng-template>
     </mat-card-content>
   </mat-card>
   <ng-container *ngFor="let product of products">
-    <app-product *ngIf="product.stock > 0" [product]="product" (addTobasket)="updatePrice($event)"></app-product>
+    <app-product *ngIf="productService.isProductAvailable(product)" [product]="product" (addTobasket)="updatePrice($event)"></app-product>
   </ng-container>
   
 </app-menu>

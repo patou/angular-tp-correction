@@ -1,4 +1,4 @@
-<mat-card [ngClass]="{lowProduct: product.stock < 2}">
+<mat-card [ngClass]="{lowProduct: productService.isLastProduct(product)}">
     <mat-card-title-group>
         <mat-card-title>
         {{ product.title }}
