@@ -1,8 +1,10 @@
-import { map } from 'rxjs/operators';
+import { OrderConfirm } from './../command';
+import { map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Product } from '../product';
+import { Command } from '../command';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +38,11 @@ export class BasketService {
 
   hasProducts() {
     return this.basket.getValue().length > 0;
+  }
+
+  sendCommand(command: Command): Observable<OrderConfirm> {
+    return this.http.post<OrderConfirm>('http://localhost:8080/rest/basket/confirm', command).pipe(tap(() => {
+      this.basket.next([]);
+    }));
   }
 }
