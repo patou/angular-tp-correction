@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
+import { ProductService } from './service/product.service';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import fr from '@angular/common/locales/fr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { ProductComponent } from './product/product.component';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(fr);
 
 @NgModule({
   declarations: [
@@ -35,7 +40,9 @@ import { ProductComponent } from './product/product.component';
     MatCardModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
