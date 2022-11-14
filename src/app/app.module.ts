@@ -1,6 +1,7 @@
 import { ProductService } from './service/product.service';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import fr from '@angular/common/locales/fr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ registerLocaleData(fr);
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
