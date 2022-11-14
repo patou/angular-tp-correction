@@ -13,4 +13,9 @@ describe('ProductService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('product is last', () => {
+    service.decreaseStock(service.getProduct(0));
+    expect(service.isLastProduct(service.getProduct(0))).toBeTruthy();
+  });
 });
