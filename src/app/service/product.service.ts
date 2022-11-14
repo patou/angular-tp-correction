@@ -13,7 +13,7 @@ export class ProductService {
     return this.httpClient.get<Product[]>('http://localhost:8080/rest/products');
   }
 
-  getProduct(id: number) : Observable<Product> {
+  getProduct(id: string) : Observable<Product> {
     return this.httpClient.get<Product>('http://localhost:8080/rest/products/' + id);
   }
 

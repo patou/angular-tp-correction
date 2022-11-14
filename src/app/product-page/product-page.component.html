@@ -8,7 +8,7 @@
         <ng-template #basketTotal>Votre panier est de {{ $total | async | currency }}</ng-template>
     </mat-card-content>
 </mat-card>
-<ng-container *ngFor="let product of ($products | async)">
+<ng-container *ngFor="let product of ($products | async);">
     <!-- *ngFor="let product of products" -->
     <app-product *ngIf="productService.isProductAvailable(product)" [product]="product"
         (addTobasket)="updatePrice($event)"></app-product>

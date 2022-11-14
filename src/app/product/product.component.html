@@ -1,7 +1,7 @@
 <mat-card [ngClass]="{lowProduct: productService.isLastProduct(product)}">
     <mat-card-title-group>
-        <mat-card-title>
-        {{ product.title }}
+        <mat-card-title >
+        <a [routerLink]="['/products', product.id]">{{product.title }}</a>
         </mat-card-title>
         <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
         <img mat-card-sm-image

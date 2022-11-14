@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ProductComponent } from './product/product.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { BasketPageComponent } from './basket-page/basket-page.component';
+import { DetailPageComponent } from './detail-page/detail-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BasketPageComponent } from './basket-page/basket-page.component';
     MenuComponent,
     ProductComponent,
     ProductPageComponent,
-    BasketPageComponent
+    BasketPageComponent,
+    DetailPageComponent
   ],
   imports: [
     BrowserModule,
