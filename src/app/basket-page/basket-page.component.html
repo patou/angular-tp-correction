@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-title>
+        <h2>Mon panier</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <mat-list>
+            <ng-container *ngFor="let product of ($basket | async)">
+                <mat-list-item > {{product.title}} <div class="price">{{product.price | currency}}</div></mat-list-item>
+                <mat-divider></mat-divider>
+            </ng-container>
+            <mat-list-item class="total">Total <div class="price">{{basketService.getTotal() | async | currency}}</div> </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
