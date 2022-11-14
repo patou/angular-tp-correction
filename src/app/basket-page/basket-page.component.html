@@ -12,3 +12,38 @@
         </mat-list>
     </mat-card-content>
 </mat-card>
+<mat-card>
+    <mat-card-title>
+        <h2>Commander</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <form (ngSubmit)="onSubmit()" #commandForm="ngForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Nom</mat-label>
+                <input matInput #nameForm="ngModel" [(ngModel)]="command.name" name="name" required>
+                <mat-error *ngIf="nameForm.hasError('required')">
+                    Le nom est <strong>obligatoire</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Adresse</mat-label>
+                <textarea matInput #addressForm="ngModel" [(ngModel)]="command.address" name="address" required></textarea>
+                <mat-error *ngIf="addressForm.hasError('required')">
+                    L'adresse est <strong>obligatoire</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Numéro de CB</mat-label>
+                <input matInput #creditCardForm="ngModel" [(ngModel)]="command.creditCard" name="creditCard" required pattern="[0-9]{10}">
+                <mat-error *ngIf="creditCardForm.hasError('pattern') && !creditCardForm.hasError('required')">
+                    Le numéro de CB doit contenir 10 chiffres
+                </mat-error>
+                <mat-error *ngIf="creditCardForm.hasError('required')">
+                    La numéro de CB est <strong>obligatoire</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button [disabled]="!commandForm.valid" color="primary">Commander</button>
+        </form>
+    </mat-card-content>
+</mat-card>
