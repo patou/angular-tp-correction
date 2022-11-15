@@ -48,5 +48,6 @@ export class BasketPageComponent implements OnInit {
 export class ConfirmOrderDialog {
   constructor(
     @Inject(MAT_DIALOG_DATA) protected data: OrderConfirm,
+    protected dialogRef: MatDialogRef<ConfirmOrderDialog>
   ) {}
 }
